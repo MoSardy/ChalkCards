@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout linearLayoutoptions;
     boolean isFabPressed = false;
 
-    Button bPreview;
+    Button bPreview,bPreviewStack;
     TextView t;
 
 
@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         fab3 = (FloatingActionButton)findViewById(R.id.floatingActionButton3);
         linearLayoutoptions = (LinearLayout)findViewById(R.id.lloptions);
         bPreview = (Button)findViewById(R.id.buttonp);
+        bPreviewStack = (Button)findViewById(R.id.buttonstackp);
+
         t = (TextView)findViewById(R.id.textViewHint);
 
         bitmaplist = new  ArrayList<Bitmap>();
@@ -108,6 +110,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 adapter = new DataAdapter(MainActivity.this,bitmaplist);
                 startActivity(new Intent(MainActivity.this,PreviewActivity.class));
+            }
+        });
+
+        bPreviewStack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                adapter = new DataAdapter(MainActivity.this,bitmaplist);
+                startActivity(new Intent(MainActivity.this,StackTypeView.class));
+
             }
         });
 
